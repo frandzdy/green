@@ -1,0 +1,47 @@
+{% extends 'front/layout.html.twig' %}
+
+{% block content %}
+    <section id="blogs" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 lh-1 mb-4">Nos derniers articles de blog</h2>
+                <p class="lead fw-normal text-muted mb-5">Explorez nos dernières publications sur la technologie durable et nos initiatives.</p>
+            </div>
+            <div class="row gx-5">
+                <!-- Blog Post 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="assets/img/blog-1.jpg" class="card-img-top" alt="Blog Post 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Titre de l'article 1</h5>
+                            <p class="card-text">Un aperçu des innovations écologiques que nous intégrons dans nos projets.</p>
+                            <a href="#" class="btn btn-primary">Lire la suite</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="assets/img/blog-2.jpg" class="card-img-top" alt="Blog Post 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Titre de l'article 2</h5>
+                            <p class="card-text">Comment Green contribue à la réduction de l'empreinte carbone dans le secteur digital.</p>
+                            <a href="#" class="btn btn-primary">Lire la suite</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="assets/img/blog-3.jpg" class="card-img-top" alt="Blog Post 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Titre de l'article 3</h5>
+                            <p class="card-text">Des conseils pratiques pour intégrer la durabilité dans votre stratégie numérique.</p>
+                            <a href="#" class="btn btn-primary">Lire la suite</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

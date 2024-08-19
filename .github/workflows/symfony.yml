@@ -1,0 +1,64 @@
+name: Symfony Interest Dev
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+    symfony-tests:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                php: [ '8.2' ]
+        name: PHP ${{ matrix.php }}
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v3
+
+            -   name: Setup PHP with tools
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    tools: php-cs-fixer, phpstan, cs2pr, phpcs
+
+            -   name: Setup Node.js
+                uses: actions/setup-node@v1
+                with:
+                    node-version: '21.x'
+
+            -   name: Copy .env.test.local
+                run: php -r "file_exists('app/.env.test.local') || copy('app/.env.test', 'app/.env.test.local');"
+
+            -   name: Cache Composer packages
+                id: composer-cache
+                uses: actions/cache@v3
+                with:
+                    path: app/vendor
+                    key: ${{ runner.os }}-php-${{ hashFiles('**/app/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-php-${{ hashFiles('**/app/composer.lock') }}
+
+            -   name: Install Composer dependencies
+                run: |
+                    cd app/
+                    composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+            # Uncomment the steps below if you want to run PHP CS Fixer, PHPStan, or PHPCS
+            -   name: Run PHP CS Fixer
+                run: |
+                    cd app/
+                    php-cs-fixer fix --dry-run --diff
+
+            -   name: Run PHPStan
+                run: |
+                    cd app/
+                    phpstan analyse src
+
+            -   name: Run PHPCS
+                run: |
+                    cd app/
+                    phpcs -q --report=checkstyle --ignore=./src/Enum --standard=PSR12 --exclude=Generic.Files.LineLength ./src | cs2pr
+
+            # Additional steps like running tests can be added here
