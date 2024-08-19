@@ -4,34 +4,32 @@ namespace App\Controller\Front;
 
 use App\Form\ContactType;
 use App\Model\ContactModel;
-use App\Service\ContactManager;
 use App\Service\MailerManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
-##[Cache(maxage: '3600')]
+#[Cache(maxage: '3600')]
 class ContactController extends AbstractController
 {
     #[Route('/contactez-nous', name: 'contact', methods: ['GET', 'POST'])]
     public function contactUs(
         Request $request,
-        ContactManager $contactManager,
         MailerManager $mailerManager,
-        string $emailSupport
+        string $emailContact
     ): Response {
         $contact = new ContactModel();
 
-        $form = $this->createForm(ContactType::class, $contact);
+        $form = $this->createForm(ContactType::class, $contact, ['action' => $request->getRequestUri()]);
         if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
             $vars = [
                 'contact' => $contact,
             ];
             $mailerManager->sendMailNotification(
-                $emailSupport,
+                $emailContact,
+                $contact->getEmail(),
                 'emails/contact.html.twig',
                 $vars
             );

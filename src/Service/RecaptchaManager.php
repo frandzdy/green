@@ -29,31 +29,69 @@ readonly class RecaptchaManager
     /**
      * Contrôle si le formulaire est envoyé par une personne et non un robot.
      */
-    public function checkForm(string $googleRecaptchaSkey, string $token): bool
-    {
+    public function checkForm(
+        string $googleRecaptchaSkey,
+        string $token,
+        string $action = 'submit',
+        string $project = 'rented-1702064464229'
+    ): bool {
+        $client = new RecaptchaEnterpriseServiceClient();
+        $projectName = $client->projectName($project);
+
+        // Définissez les propriétés de l'événement à suivre.
+        $event = (new Event())
+            ->setSiteKey($googleRecaptchaSkey)
+            ->setToken($token);
+
+        // Créez la demande d'évaluation.
+        $assessment = (new Assessment())
+            ->setEvent($event);
+
         try {
-            $res = $this->guzzle->post(
-                'https://www.google.com/recaptcha/api/siteverify',
-                [
-                    'form_params' => [
-                        'secret' => $googleRecaptchaSkey,
-                        'response' => $token,
-                    ],
-                ]
+            $response = $client->createAssessment(
+                $projectName,
+                $assessment
             );
 
-            if ('200' == $res->getStatusCode()) {
-                $this->logger->info('GOOGLE RECAPTCHA', json_decode($res->getBody(), true));
-
-                return json_decode($res->getBody(), true)['success'];
-            } else {
-                $this->logger->error('GOOGLE RECAPTCHA', json_decode($res->getBody(), true));
-
+            // Vérifiez si le jeton est valide.
+            if ($response->getTokenProperties()->getValid() == false) {
+                printf(InvalidReason::name($response->getTokenProperties()->getInvalidReason()));
+                $this->logger->info(
+                    'GOOGLE RECAPTCHA ',
+                    [
+                        'message' => 'The CreateAssessment() call failed because the token was invalid for the following reason: ' . printf(
+                                InvalidReason::name($response->getTokenProperties()->getInvalidReason())
+                            )
+                    ]
+                );
                 return false;
             }
-        } catch (\Exception $exception) {
-            $this->logger->error('GOOGLE RECAPTCHA ERROR', ['message' => $exception->getMessage()]);
 
+            // Vérifiez si l'action attendue a été exécutée.
+            if ($response->getTokenProperties()->getAction() == $action) {
+                // Obtenez le score de risques et le ou les motifs.
+                // Pour savoir comment interpréter l'évaluation, consultez les pages suivantes :
+                // https://cloud.google.com/recaptcha-enterprise/docs/interpret-assessment
+                $this->logger->info(
+                    'GOOGLE RECAPTCHA ',
+                    [
+                        'message' => 'The score for the protection action is:' . $response->getRiskAnalysis()->getScore(
+                            )
+                    ]
+                );
+                return true;
+            } else {
+                $this->logger->warning(
+                    'GOOGLE RECAPTCHA ERROR ',
+                    ['message' => 'The action attribute in your reCAPTCHA tag does not match the action you are expecting to score']
+                );
+                return false;
+            }
+        } catch (exception $exception) {
+            $this->logger->error(
+                'GOOGLE RECAPTCHA ERROR -> CreateAssessment() call failed with the following error: ',
+                ['message' => $exception->getMessage()]
+            );
             return false;
         }
     }

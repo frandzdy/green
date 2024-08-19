@@ -27,6 +27,7 @@ readonly class MailerManager
      */
     public function sendMailNotification(
         array|string $to,
+        string $from,
         string $templateAlias,
         ?array $vars = [],
         ?array $pathAttachmentFiles = [],
@@ -50,6 +51,10 @@ readonly class MailerManager
             }
         } else {
             $email->to(new Address($to));
+        }
+
+        if ($from) {
+            $email->from(new Address($from));
         }
 
         if ($replyTo) {

@@ -19,7 +19,7 @@ window.jconfirm = jconfirm
 import toastr from 'toastr';
 
 toastr.options.preventDuplicates = true;
-toastr.options.positionClass = 'toast-bottom-left';
+toastr.options.positionClass = 'toast-top-center';
 
 window.toastr = toastr
 /*
