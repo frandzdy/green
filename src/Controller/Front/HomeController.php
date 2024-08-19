@@ -13,4 +13,10 @@ class HomeController extends AbstractController
     {
         return $this->render('front/home/index.html.twig');
     }
+
+    #[Route(path: '/resevation', name: 'calendly')]
+    public function calendly(): Response
+    {
+        return $this->render('front/home/calendly.html.twig');
+    }
 }

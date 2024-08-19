@@ -31,3 +31,10 @@ window.toastr = toastr
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+document.addEventListener('DOMContentLoaded', function() {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.type = 'text/javascript';
+    document.head.appendChild(script);
+});
