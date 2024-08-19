@@ -41,24 +41,16 @@ jobs:
                         ${{ runner.os }}-php-${{ hashFiles('**/app/composer.lock') }}
 
             -   name: Install Composer dependencies
-                run: |
-                    cd app/
-                    composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+                run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
             # Uncomment the steps below if you want to run PHP CS Fixer, PHPStan, or PHPCS
             -   name: Run PHP CS Fixer
-                run: |
-                    cd app/
-                    php-cs-fixer fix --dry-run --diff
+                run: php-cs-fixer fix --dry-run --diff
 
             -   name: Run PHPStan
-                run: |
-                    cd app/
-                    phpstan analyse src
+                run: phpstan analyse src
 
             -   name: Run PHPCS
-                run: |
-                    cd app/
-                    phpcs -q --report=checkstyle --ignore=./src/Enum --standard=PSR12 --exclude=Generic.Files.LineLength ./src | cs2pr
+                run: phpcs -q --report=checkstyle --ignore=./src/Enum --standard=PSR12 --exclude=Generic.Files.LineLength ./src | cs2pr
 
             # Additional steps like running tests can be added here
