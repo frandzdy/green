@@ -1,0 +1,87 @@
+{% extends 'back/layout.html.twig' %}
+
+{% trans_default_domain 'message' %}
+
+{% block title %}{{ service.label|trans }}{% endblock %}
+
+{% block content %}
+    <div class="align-content-center">
+        <h1> {{ service.label|trans }}</h1>
+    </div>
+    <div class="row my-4 table-responsive">
+        {# total items count #}
+        <div class="count">
+            Nombre de camion : {{ trucks.getTotalItemCount }}
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr class="text-center text-black">
+                <th {% if trucks.isSorted('truck.service') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(trucks, 'Serv.', 'truck.service') }}
+                </th>
+                <th {% if trucks.isSorted('truck.createdAt') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(trucks, 'Heure', 'truck.createdAt') }}
+                </th>
+                <th {% if trucks.isSorted('truck.society') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(trucks, 'Société', 'truck.society') }}
+                </th>
+                <th {% if trucks.isSorted('truck.lastname') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(trucks, 'Nom', 'truck.lastname') }}
+                </th>
+                <th {% if trucks.isSorted('truck.firstname') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(trucks, 'Prénom', 'truck.firstname') }}
+                </th>
+                <th {% if trucks.isSorted('zone.label') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(trucks, 'Zone', 'zone.label') }}
+                </th>
+                <th {% if trucks.isSorted('truck.status') %} class="sorted"{% endif %}>
+                    {{ knp_pagination_sortable(trucks, 'Status', 'truck.status') }}
+                </th>
+                {% if service == constant('App\\Enum\\Service::LOGISTIC') %}
+                    <th>Action</th>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for truck in trucks %}
+                {% set style = 'color:white;background-color: ' ~ truck.status.labelAndColor.color %}
+                <tr
+                        {% if truck.canAddZone and service != constant('App\\Enum\\Service::LOGISTIC') %}
+                            href="{{ path('back_service_add_zone', { 'id': truck.id, 'service': truck.service.LabelService }) }}"
+                            data-modal-title="Ajouter une zone au camion : {{ truck.historyNewPlate.plate }}"
+                            class="truck-add-zone text-center open-front-modal"
+                        {% else %}
+                            class="text-center"
+                        {% endif %}
+                >
+                    <td style="{{ style }}">{{ truck.service.label|trans }}</td>
+                    <td style="{{ style }}">{{ truck.createdAt|date('h:i') }}</td>
+                    <td style="{{ style }}">{{ truck.society }}</td>
+                    <td style="{{ style }}">{{ truck.lastname }}</td>
+                    <td style="{{ style }}">{{ truck.firstname }}</td>
+                    <td style="{{ style }}">{{ truck.zone }}</td>
+                    <td style="{{ style }}">{{ truck.status.label|trans }}</td>
+                    {% if service == constant('App\\Enum\\Service::LOGISTIC') %}
+                        <td style="{{ style }}">
+                            {% if truck.canAddZone %}
+                                <a href="{{ path('back_service_add_zone', { 'id': truck.id, 'service': service.LabelService }) }}"
+                                   data-modal-title="Ajouter une zone au camion : {{ truck.historyNewPlate.plate }}"
+                                   class="btn btn-primary truck-add-zone open-front-modal">Affecter une zone</a>
+                            {% endif %}
+                            <a href="{{ path('back_service_delete_truck', {'id' : truck.id, 'service' : service.LabelService}) }}"
+                               class="btn btn-xs btn-danger post-confirm"
+                               data-button-text="Suppression"
+                               data-title="Suppression"
+                               data-confirm-message="Souhaitez-vous supprimer cet élément ?">Supprimer</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {# display navigation #}
+        <div class="navigation">
+            {{ knp_pagination_render(trucks) }}
+        </div>
+    </div>
+{% endblock %}

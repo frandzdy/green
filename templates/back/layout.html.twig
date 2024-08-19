@@ -1,0 +1,66 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-between">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ path('back_dashboard') }}" title="Accueil">
+                <img src="{{ asset('images/FORVIA_Faurecia_Logo_RVB.png') }}" width="150" height="50"
+                     alt="Faurécia Truck Flow">
+            </a>
+            {% if app.user %}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.current_route =='back_user_list' ? 'active' : '' }}"
+                           href="{{ path('back_user_list') }}">Admin. Utilisateurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.current_route == 'back_setting_edit' ? 'active' : '' }}"
+                           href="{{ path('back_setting_edit') }}">Configuration</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ app.current_route starts with 'back_service_' ? 'active' : '' }}"
+                           href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin. Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item"
+                                   href="{{ path('back_service_list', { service: 'shipping'}) }}">Expédition</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                   href="{{ path('back_service_list', { service: 'reception'}) }}">Réception</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                   href="{{ path('back_service_list', { service: 'general_store_letter'}) }}">Messagerie
+                                    Magasin Général</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{{ path('back_service_list', {service: 'reception_letter'}) }}">Messagerie
+                                    Réception</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item"
+                                   href="{{ path('back_service_list', {service: 'logistic'}) }}">Logistique</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            {% endif %}
+            <span class="navbar-text">
+                {% if app.user %}
+                    connecté : <a href="{{ path('back_user_edit', { 'user': app.user.id}) }}"
+                                  data-modal-title="Edition : {{ app.user.lastname }}"
+                                  class="open-front-modal">{{ app.user.email }}</a>
+                    <a href="{{ path('back_logout') }}" class="btn btn-danger text-white" type="submit">Se déconnecter</a>
+                {% else %}
+                    <a href="{{ path('back_connexion') }}" class="btn btn-primary text-white" type="submit">Se
+                        connecter</a>
+                {% endif %}
+            </span>
+        </div>
+    </nav>
+    <main class="my-5" {{ stimulus_target('commun', 'container') }}>
+        {% block content %}{% endblock %}
+    </main>
+    {{ include('front/partials/_modal.html.twig') }}
+{% endblock %}

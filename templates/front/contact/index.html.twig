@@ -1,0 +1,10 @@
+{{ form_start(form, {attr:{'id': 'contactForm', 'autocomplete': 'off', 'data-contact-target': 'contactForm'}}) }}
+{{ form_row(form.lastname) }}
+{{ form_row(form.firstname) }}
+{{ form_row(form.email) }}
+{{ form_row(form.subject) }}
+{{ form_row(form.message) }}
+<div class="d-grid">
+    <button data-action="commun#checkRecaptcha" formnovalidate class="btn btn-primary rounded-pill btn-lg">Submit</button>
+</div>
+{{ form_end(form) }}

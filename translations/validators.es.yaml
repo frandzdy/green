@@ -1,0 +1,2 @@
+form:notBlank: 'Este campo es obligatorio.'
+form.invalide: 'El formato no es válido.'

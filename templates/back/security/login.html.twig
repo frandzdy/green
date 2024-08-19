@@ -1,0 +1,41 @@
+{% extends 'back/layout.html.twig' %}
+{% trans_default_domain 'message' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1 class="h3 mb-3 font-weight-normal">Admin</h1>
+    </div>
+    <div class="row offset-3 col-6 offset-3">
+        <form method="post">
+            <div class="mb-3">
+                <label for="inputEmail">E-mail</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
+                       autocomplete="email" required autofocus placeholder="lucas@faurecia.com">
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control"
+                       autocomplete="current-password" required>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me" checked>
+                    Se souvenir de moi
+                </label>
+            </div>
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+            <div class="text-center">
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Se connecter
+                </button>
+                <a class="btn btn-lg btn-primary" href="{{ path('back_connect_o365') }}">
+                    Se connecter via Office 365
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

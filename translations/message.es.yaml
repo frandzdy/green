@@ -1,0 +1,62 @@
+home: 'Inicio'
+
+welcome: 'Bienvenido a FAURECIA, por favor elija un servicio'
+
+services:
+    choice: 'Servicios'
+    registry: 'Registro'
+    shipping: 'Envío'
+    reception: 'Recepción'
+    general_store_letter: 'Mensajería Almacén General'
+    reception_letter: 'Mensajería Recepción'
+    logistic: 'Logística'
+    add_zone: 'Asignación de Zona'
+    cancel: 'Cancelar'
+status:
+    await: 'Camión registrado y en espera'
+    call: 'Camión llamado (ACCESO AUTORIZADO)'
+    on_site: 'Camión en el sitio'
+    off_site: 'Camión fuera del sitio'
+type:
+    todo: 'TODO'
+
+signIn:
+    society: 'Empresa'
+    plate: 'Matrícula'
+    lastname: 'Apellido'
+    firstname: 'Nombre'
+    mobile: 'Teléfono móvil'
+    reference: 'Referencia de transporte'
+    submit: 'Registrado'
+    service: 'Servicio'
+    require_fields: '(*) Campos obligatorios'
+    check_phone: 'Verificación de su número de teléfono'
+    instruction: 'Instrucción'
+    terms: 'términos'
+    placeholder:
+        plate: '-- Seleccione su matrícula --'
+
+sms:
+    message:
+        service: |
+            'Bienvenido a Forvia – Su número de teléfono ha sido validado con éxito\n
+            \n
+            Ingrese al sitio, ACCESO AUTORIZADO – ZONA: %zone% – CÓDIGO: %code%\n
+            \n
+            https://maps.app.goo.gl/zZrSjd2Ci4n4NKBZ6\n'
+        no_service: |
+            'Bienvenido a Forvia – Su número de teléfono ha sido validado con éxito\n
+            \n
+            https://maps.app.goo.gl/zZrSjd2Ci4n4NKBZ6\n'
+    retry: '¿Intentar de nuevo?'
+    send: 'SMS enviado.'
+    receive: 'SMS recibido'
+    checkPhone: 'Verificar N°'
+terms:
+    title: 'Términos'
+    button: 'He leído y acepto los términos...'
+instruction:
+    title: 'Instrucción'
+    button: 'Terminar'
+recap:
+    title: 'Resumen'

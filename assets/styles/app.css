@@ -1,0 +1,9 @@
+
+a {
+    text-underline: none;
+    text-decoration: none;
+}
+
+.required:after {
+    content: " (*)";
+}

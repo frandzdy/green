@@ -1,0 +1,69 @@
+home: 'Accueil'
+
+welcome: 'Bienvenue chez FAURECIA, merci de choisir un service'
+
+services:
+    choice: 'Services'
+    registry: 'Enregistrement'
+    shipping: 'Expédition'
+    reception: 'Réception'
+    general_store_letter: 'Messagerie Magasin Général'
+    reception_letter: 'Messagerie Réception'
+    logistic: 'Logistique'
+    add_zone: 'Affection zone'
+    cancel: 'Annuler'
+status:
+    await: 'Camion enregistré en attente'
+    call: 'Camion en appel (ACCES AUTORISE)'
+    on_site: 'Camion sur site'
+    off_site: 'Camion hors site'
+type:
+    todo: 'TODO'
+
+signIn:
+    society: 'Société'
+    plate: 'Immatriculation'
+    lastname: 'Nom'
+    firstname: 'Prénom'
+    mobile: 'Téléphone portable'
+    reference: 'Référence transport'
+    submit: 'Enregistré'
+    service: 'Service'
+    require_fields: '(*) Champs obligatoires'
+    check_phone: 'Vérification de votre numéro de téléphone'
+    instruction: 'Instruction'
+    terms: 'termes'
+    placeholder:
+        plate: '-- Sélectionner votre plaque d''immatriculation --'
+
+sms:
+    message:
+        service:
+            'Bienvenue chez Forvia – Votre N° de téléphone est bien validé\n
+            \n
+            Entrez sur site, ACCES AUTORISE – ZONE: %zone% – CODE: %code%\n
+            \n
+            https://maps.app.goo.gl/zZrSjd2Ci4n4NKBZ6\n'
+        no_service:
+            'Bienvenue chez Forvia – Votre N° de téléphone est bien validé\n
+            \n
+            https://maps.app.goo.gl/zZrSjd2Ci4n4NKBZ6\n'
+    retry: 'Nouvelle Essaie ?'
+    send: 'SMS envoyé.'
+    receive: 'SMS reçu'
+    checkPhone: 'Vérifiez N°'
+terms:
+    title: 'Termes'
+    button: 'J''ai lu et j''accepte les termes...'
+instruction:
+    title: 'Instruction'
+    button: 'Terminer'
+    head_line: 'Instruction d''entrée sur site'
+    head_title: 'Voici un paragraphe avec du texte qui contient une liste :'
+    body_text_1: 'Retourner en zone d''attente'
+    body_text_2: 'Attendre de recevoir un message sms'
+    body_text_3: 'Avancer vers la barrière'
+    body_text_4: 'Si la barrière ne s''ouvre pas, saisir le code pin transmis par sms sur le clavier'
+    body_text_5: 'Entrez sur le site et rendez-vous au service demandé'
+recap:
+    ttle: 'Récapitulatif'

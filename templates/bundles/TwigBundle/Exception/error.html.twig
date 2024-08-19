@@ -1,0 +1,68 @@
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Faurécia Truck Flow | {{ exception.statusCode }}{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    {% block javascripts %}
+        {% block importmap %}{{ importmap(['app', 'back_app']) }}{% endblock %}
+    {% endblock %}
+</head>
+<body class="container">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('front_home') }}" title="Accueil">
+            <img src="{{ asset('images/FORVIA_Faurecia_Logo_RVB.png') }}" width="150" height="50"
+                 alt="Faurécia Truck Flow">
+        </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link {{ app.current_route starts with 'back_user_' ? 'active' : '' }}" href="#">Gestion
+                    utilisateur</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ app.current_route starts with 'back_setting_' ? 'active' : '' }}" href="{{ path('back_setting_edit') }}">Configuration</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle {{ app.current_route starts with 'back_service_' ? 'active' : '' }}" href="#" id="navbarDropdown" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    Admin Service
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ path('back_service_list', { service: 'shipping'}) }}">Expédition</a>
+                    </li>
+                    <li><a class="dropdown-item" href="{{ path('back_service_list', { service: 'reception'}) }}">Réception</a>
+                    </li>
+                    <li><a class="dropdown-item"
+                           href="{{ path('back_service_list', { service: 'general_store_letter'}) }}">Messagerie
+                            Magasin Général</a></li>
+                    <li><a class="dropdown-item"
+                           href="{{ path('back_service_list', {service: 'reception_letter'}) }}">Messagerie
+                            Réception</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="d-flex">
+            {% if app.user %}
+                connecté : <a href="{{ path('back_user_edit', { 'user': app.user.id}) }}"
+                              data-modal-title="Edition : {{ app.user.lastname }}"
+                              class="open-front-modal">{{ app.user.email }}</a>
+                <a href="{{ path('back_logout') }}" class="btn btn-primary" type="submit">Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('back_connexion') }}" class="btn btn-primary" type="submit">Se
+                    connecter</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<main class="text-center my-4">
+    <div class="mb-3">Erreur : {{ exception.message }}</div>
+    <div>
+        <a class="btn btn-lg btn-primary" href="{{ path('back_connect_o365') }}">
+            Se connecter via O365
+        </a>
+    </div>
+</main>
+</body>
+</html>

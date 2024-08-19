@@ -1,0 +1,2 @@
+form.notBlank: 'Dit veld is verplicht.'
+form.invalide: 'Het formaat is niet geldig.'

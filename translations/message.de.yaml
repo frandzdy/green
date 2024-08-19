@@ -1,0 +1,62 @@
+home: 'Startseite'
+
+welcome: 'Willkommen bei FAURECIA, bitte wählen Sie einen Dienst aus'
+
+services:
+    choice: 'Dienste'
+    registry: 'Registrierung'
+    shipping: 'Versand'
+    reception: 'Empfang'
+    general_store_letter: 'Allgemeiner Lagermessaging'
+    reception_letter: 'Empfangs-Messaging'
+    logistic: 'Logistik'
+    add_zone: 'Zonen-Zuordnung'
+    cancel: 'Abbrechen'
+status:
+    await: 'LKW registriert und wartet'
+    call: 'LKW aufgerufen (ZUGANG GENEHMIGT)'
+    on_site: 'LKW vor Ort'
+    off_site: 'LKW vom Gelände'
+type:
+    todo: 'TODO'
+
+signIn:
+    society: 'Firma'
+    plate: 'Kennzeichen'
+    lastname: 'Nachname'
+    firstname: 'Vorname'
+    mobile: 'Mobiltelefon'
+    reference: 'Transportreferenz'
+    submit: 'Registriert'
+    service: 'Dienst'
+    require_fields: '(*) Pflichtfelder'
+    check_phone: 'Überprüfung Ihrer Telefonnummer'
+    instruction: 'Anweisung'
+    terms: 'Bedingungen'
+    placeholder:
+        plate: '-- Wählen Sie Ihr Kennzeichen --'
+
+sms:
+    message:
+        service: |
+            'Willkommen bei Forvia – Ihre Telefonnummer wurde erfolgreich validiert\n
+            \n
+            Betreten Sie das Gelände, ZUGANG GENEHMIGT – ZONE: %zone% – CODE: %code%\n
+            \n
+            https://maps.app.goo.gl/zZrSjd2Ci4n4NKBZ6\n'
+        no_service: |
+            'Willkommen bei Forvia – Ihre Telefonnummer wurde erfolgreich validiert\n
+            \n
+            https://maps.app.goo.gl/zZrSjd2Ci4n4NKBZ6\n'
+    retry: 'Erneut versuchen?'
+    send: 'SMS gesendet.'
+    receive: 'SMS empfangen'
+    checkPhone: 'Nummer überprüfen'
+terms:
+    title: 'Bedingungen'
+    button: 'Ich habe die Bedingungen gelesen und akzeptiere sie...'
+instruction:
+    title: 'Anweisung'
+    button: 'Beenden'
+recap:
+    title: 'Zusammenfassung'
