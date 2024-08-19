@@ -23,11 +23,6 @@ jobs:
                     php-version: ${{ matrix.php }}
                     tools: php-cs-fixer, phpstan, cs2pr, phpcs
 
-            -   name: Setup Node.js
-                uses: actions/setup-node@v1
-                with:
-                    node-version: '21.x'
-
             -   name: Copy .env.test.local
                 run: php -r "file_exists('app/.env.test.local') || copy('app/.env.test', 'app/.env.test.local');"
 
