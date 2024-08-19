@@ -7,7 +7,6 @@ use App\Model\ContactModel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -83,7 +82,7 @@ class ContactType extends AbstractType
                     'attr' => [
                         'style' => 'height: 200px;resize:none;',
                         'maxlength' => 400,
-                        'placeholder' => 'Laissez nous un message *'
+                        'placeholder' => 'Laissez nous un message *',
                     ],
                     'row_attr' => [
                         'class' => 'form-floating mb-3',

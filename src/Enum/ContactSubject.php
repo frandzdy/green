@@ -34,7 +34,7 @@ enum ContactSubject: int
     /**
      * Retourne la liste des sujets contacts disponibles.
      */
-    public static function getLabel($key): string
+    public static function getLabel(int $key): string
     {
         $arrayContactSubject = self::getAvailableContactSubjects();
 

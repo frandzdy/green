@@ -13,7 +13,6 @@ class TestimonyController extends AbstractController
     #[Route('/temoignages', name: 'testimonials', methods: ['GET'])]
     public function testimonials(
     ): Response {
-
         return $this->render('front/testimony/index.html.twig');
     }
 }

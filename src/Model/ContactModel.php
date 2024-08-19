@@ -13,7 +13,7 @@ class ContactModel
      * Sujet du formulaire de, contactez-nous.
      */
     #[Assert\NotBlank(message: 'Information requise.')]
-    private int $subject;
+    private ?int $subject = null;
 
     /**
      * Retourne le sujet.
@@ -26,7 +26,7 @@ class ContactModel
     /**
      * set le sujet.
      */
-    public function setSubject(?string $subject): self
+    public function setSubject(?int $subject): self
     {
         $this->subject = $subject;
 

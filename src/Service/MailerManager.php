@@ -31,7 +31,7 @@ readonly class MailerManager
         string $templateAlias,
         ?array $vars = [],
         ?array $pathAttachmentFiles = [],
-        string $replyTo = null,
+        ?string $replyTo = null,
         ?array $bccs = [],
         ?array $ccs = []
     ): void {
@@ -61,7 +61,7 @@ readonly class MailerManager
             $email->replyTo(new Address($replyTo));
         }
 
-        $email->subject($prepend.$subject)
+        $email->subject($prepend . $subject)
             ->text($textBody)
             ->html($htmlBody);
 
@@ -81,10 +81,10 @@ readonly class MailerManager
             $this->mailer->send($email);
         } catch (TransportExceptionInterface $transportException) {
             $this->emailLogger->error("[EMAIL] Erreur lors de l'envoie : ", [
-                    'to' => $to,
-                    'subject' => $subject,
-                    'message' => $transportException->getMessage(),
-                ]
+                'to' => $to,
+                'subject' => $subject,
+                'message' => $transportException->getMessage(),
+            ]
             );
         }
     }

@@ -13,7 +13,6 @@ class BlogController extends AbstractController
     #[Route('/blogs', name: 'blog', methods: ['GET'])]
     public function blogs(
     ): Response {
-
         return $this->render('front/blog/index.html.twig');
     }
 }
