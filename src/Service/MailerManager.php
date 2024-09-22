@@ -18,7 +18,7 @@ readonly class MailerManager
     public function __construct(
         private MailerInterface $mailer,
         private Environment $environment,
-        private LoggerInterface $emailLogger
+        private LoggerInterface $emailLogger,
     ) {
     }
 
@@ -33,7 +33,7 @@ readonly class MailerManager
         ?array $pathAttachmentFiles = [],
         ?string $replyTo = null,
         ?array $bccs = [],
-        ?array $ccs = []
+        ?array $ccs = [],
     ): void {
         $template = $this->environment->load($templateAlias);
 

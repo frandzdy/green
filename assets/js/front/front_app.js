@@ -6,7 +6,6 @@
  */
 import '../../styles/front/front.css';
 import '../../styles/front/front-template.css';
-import '@fontsource/montserrat/400.css';
 
 import {ScrollSpy} from 'bootstrap';
 

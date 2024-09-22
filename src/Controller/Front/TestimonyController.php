@@ -4,10 +4,8 @@ namespace App\Controller\Front;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\Cache;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
-#[Cache(maxage: '3600')]
 class TestimonyController extends AbstractController
 {
     #[Route('/temoignages', name: 'testimonials', methods: ['GET'])]

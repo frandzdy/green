@@ -18,6 +18,7 @@
         "sensiolabs/typescript-bundle": "^0.1.4",
         "symfony/asset": "7.1.*",
         "symfony/asset-mapper": "7.1.*",
+        "symfony/cache": "7.1.*",
         "symfony/console": "7.1.*",
         "symfony/doctrine-messenger": "7.1.*",
         "symfony/dotenv": "7.1.*",
@@ -46,7 +47,8 @@
         "symfony/validator": "7.1.*",
         "symfony/web-link": "7.1.*",
         "symfony/yaml": "7.1.*",
-        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/cache-extra": "^3.11",
+        "twig/extra-bundle": "^3.12",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {

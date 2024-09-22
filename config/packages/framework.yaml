@@ -12,9 +12,12 @@ framework:
         handler_id: ~
     translator:
         fallbacks: [ 'fr' ]
-
+    enabled_locales: [ 'fr' ]
     #esi: true
     #fragments: true
+#    assets:
+#        version: 'v1.1' # ou utiliser un hash généré automatiquement
+#        version_format: '%%s?%%s'
 
 when@test:
     framework:

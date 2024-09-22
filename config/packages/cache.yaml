@@ -1,5 +1,12 @@
 framework:
     cache:
+        app: cache.adapter.apcu
+        system: cache.adapter.system
+        pools:
+            app.cache:
+                adapter: cache.adapter.apcu
+                default_lifetime: 600
+
         # Unique name of your app: used to compute stable namespaces for cache keys.
         #prefix_seed: your_vendor_name/app_name
 

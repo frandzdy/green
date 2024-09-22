@@ -7,7 +7,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 trait NotificationModelTrait
 {
     /**
-     * Prénom du formulaire de contacte.
+     * Nom de la société du formulaire de contact.
+     */
+    #[Assert\NotBlank(message: 'Information requise.')]
+    #[Assert\Length(max: 100)]
+    private ?string $companyName;
+
+    /**
+     * Prénom du formulaire de contact.
      */
     #[Assert\NotBlank(message: 'Information requise.')]
     #[Assert\Length(max: 100)]
@@ -21,7 +28,7 @@ trait NotificationModelTrait
     private ?string $lastname;
 
     /**
-     * E-mail du formulaire de contacte.
+     * E-mail du formulaire de contact.
      */
     #[Assert\NotBlank(message: 'Information requise.')]
     #[Assert\Email(message: 'Format e-mail incorrect.')]
@@ -29,11 +36,35 @@ trait NotificationModelTrait
     private ?string $email;
 
     /**
-     * Message du formulaire de contacte.
+     * Téléphone du formulaire de contact.
+     */
+    #[Assert\Length(max: 20, maxMessage: '20 caractères maximum.')]
+    private ?string $phone;
+
+    /**
+     * Message du formulaire de contact.
      */
     #[Assert\NotBlank(message: 'Information requise.')]
-    #[Assert\Length(max: 400)]
+    #[Assert\Length(max: 400, maxMessage: '400 caractères maximum.')]
     private ?string $message;
+
+    /**
+     * Retourne le nom de l'entreprise du contact.
+     */
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * Set le nom de l'entreprise du contact.
+     */
+    public function setCompanyName(?string $companyName): self
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
 
     /**
      * Retourne le prénom du contact.
@@ -85,6 +116,24 @@ trait NotificationModelTrait
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Retourne le téléphone du contact.
+     */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set le téléphone du contact.
+     */
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }

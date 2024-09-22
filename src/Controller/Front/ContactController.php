@@ -8,17 +8,15 @@ use App\Service\MailerManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Cache(maxage: '3600')]
 class ContactController extends AbstractController
 {
     #[Route('/contactez-nous', name: 'contact', methods: ['GET', 'POST'])]
     public function contactUs(
         Request $request,
         MailerManager $mailerManager,
-        string $emailContact
+        string $emailContact,
     ): Response {
         $contact = new ContactModel();
 

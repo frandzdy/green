@@ -5,8 +5,10 @@ namespace App\Form;
 use App\Enum\ContactSubject;
 use App\Model\ContactModel;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,13 +22,27 @@ class ContactType extends AbstractType
 
         $builder
             ->add(
+                'companyName',
+                TextType::class,
+                [
+                    'label' => 'Entreprise',
+                    'attr' => [
+                        'maxlength' => 100,
+                        'placeholder' => 'Entreprise',
+                    ],
+                    'row_attr' => [
+                        'class' => 'form-floating mb-3',
+                    ],
+                ]
+            )
+            ->add(
                 'firstname',
                 TextType::class,
                 [
                     'label' => 'Prénom',
                     'attr' => [
                         'maxlength' => 100,
-                        'placeholder' => 'Prénom *',
+                        'placeholder' => 'Prénom',
                     ],
                     'row_attr' => [
                         'class' => 'form-floating mb-3',
@@ -62,10 +78,26 @@ class ContactType extends AbstractType
                 ]
             )
             ->add(
+                'phone',
+                TelType::class,
+                [
+                    'label' => 'Numéro de téléphone',
+                    'attr' => [
+                        'maxlength' => 20,
+                        'placeholder' => 'Numéro de téléphone',
+                    ],
+                    'row_attr' => [
+                        'class' => 'form-floating mb-3',
+                    ],
+                    'required' => false,
+                ]
+            )
+            ->add(
                 'subject',
-                ChoiceType::class,
+                EnumType::class,
                 [
                     'label' => false,
+                    'class' => ContactSubject::class,
                     'attr' => ['class' => 'custom-select'],
                     'choices' => array_flip(ContactSubject::getAvailableContactSubjects()),
                     'placeholder' => '-- Sélectionnez un sujet --',
@@ -86,6 +118,18 @@ class ContactType extends AbstractType
                     ],
                     'row_attr' => [
                         'class' => 'form-floating mb-3',
+                    ],
+                ]
+            )->add(
+                'uploadFile',
+                FileType::class,
+                [
+                    'label' => 'Fichier (pdf 1Mo)',
+                    'attr' => [
+                        'placeholder' => 'Fichiers ....',
+                    ],
+                    'row_attr' => [
+                        'class' => 'form-floating form-control-sm mb-3',
                     ],
                 ]
             );

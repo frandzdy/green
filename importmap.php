@@ -56,10 +56,6 @@ return [
         'version' => '2.1.4',
         'type' => 'css',
     ],
-    'jquery-confirm/css/jquery-confirm.css' => [
-        'version' => '3.3.4',
-        'type' => 'css',
-    ],
     'bootstrap-icons/font/bootstrap-icons.min.css' => [
         'version' => '1.11.3',
         'type' => 'css',
@@ -71,8 +67,12 @@ return [
         'version' => '2.3.1',
         'type' => 'css',
     ],
-    '@fontsource/montserrat/400.css' => [
-        'version' => '5.0.19',
+    'bs-brain/tutorials/timelines/timeline-4/assets/css/timeline-4.css' => [
+        'version' => '2.0.4',
+        'type' => 'css',
+    ],
+    'jquery-confirm/css/jquery-confirm.min.css' => [
+        'version' => '3.3.4',
         'type' => 'css',
     ],
 ];

@@ -1,44 +1,35 @@
-<!-- Blog Section -->
-<section id="blogs" class="py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="display-4 lh-1 mb-4">Nos derniers articles de blog</h2>
-            <p class="lead fw-normal text-muted mb-5">Explorez nos dernières publications sur la technologie durable et nos initiatives.</p>
-        </div>
-        <div class="row gx-5">
-            <!-- Blog Post 1 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <img src="assets/img/blog-1.jpg" class="card-img-top" alt="Blog Post 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Titre de l'article 1</h5>
-                        <p class="card-text">Un aperçu des innovations écologiques que nous intégrons dans nos projets.</p>
-                        <a href="#" class="btn btn-primary">Lire la suite</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Blog Post 2 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <img src="assets/img/blog-2.jpg" class="card-img-top" alt="Blog Post 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Titre de l'article 2</h5>
-                        <p class="card-text">Comment Green contribue à la réduction de l'empreinte carbone dans le secteur digital.</p>
-                        <a href="#" class="btn btn-primary">Lire la suite</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Blog Post 3 -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <img src="assets/img/blog-3.jpg" class="card-img-top" alt="Blog Post 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Titre de l'article 3</h5>
-                        <p class="card-text">Des conseils pratiques pour intégrer la durabilité dans votre stratégie numérique.</p>
-                        <a href="#" class="btn btn-primary">Lire la suite</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<script>
+    function onSubmit(token) {
+        let contactFormTarget = document.getElementById("contactForm");
+        let $btn = $('input[type="submit"]');
+        $btn
+            .attr('disabled', 'disabled');
+        // Add your logic to submit to your backend server here.
+        $.post(
+            Routing.generate('front_recaptcha_check', {'token': token})
+        ).done(async (data) => {
+            if (data.response) {
+                const $form = $(contactFormTarget);
+                $form.submit();
+            } else {
+                $btn.html('Envoyer').removeAttr('disabled');
+                toastr.error("Vous avez été identifié comme robot; si ce n'est pas le cas, veuillez réessayer.");
+            }
+        });
+    }
+</script>
+<div>
+    {{ form_start(form, {attr:{'id': 'contactForm', 'autocomplete': 'off', 'formnovalidate': 'formnovalidate'}}) }}
+    {{ form_row(form.companyName) }}
+    {{ form_row(form.lastname) }}
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.phone) }}
+    {{ form_row(form.subject) }}
+    {{ form_row(form.message) }}
+    {{ form_row(form.uploadFile) }}
+    <div class="d-grid">
+        <button class="g-recaptcha btn btn-primary rounded-pill btn-lg" formnovalidate data-sitekey="{{ googleRecaptchaPkey }}" data-callback="onSubmit">Envoyer</button>
     </div>
-</section>
+    {{ form_end(form) }}
+</div>

@@ -3,13 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="turbo-prefetch" content="false">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="Green - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire.">
+          content="Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.">
     <meta name="keywords"
-          content="Green, développement éco-responsable, numérique durable, plantation d'arbres, technologie verte, développement web, impact environnemental">
-    <title>Green | Numérique Éco-Responsable</title>
+          content="Alsi l'agence web éco-responsable, développement éco-responsable de site moins énergivore, numérique durable, plantation d'arbres, technologie verte, développement web, minimum d'impact environnemental, agence web éco-responsable">
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" sizes="75x75"/>
+    <title>Alsi | {% block title %}{% endblock %}</title>
     <link rel="canonical" href="{{ app.request.uri }}">
+
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alsi, l'agence web éco-responsable">
+    <meta property="og:description"
+          content="Notre agence web éco-responsable réalise des sites internet écologiques, moins énergivores &amp; moins polluants afin de limiter votre impact environnemental.">
+    <meta property="og:url" content="https://alsi.fr/">
+    <meta property="og:site_name" content="Alsi">
+    <meta property="og:updated_time" content="2024-08-19T20:34:05+02:00">
+    <meta property="og:image" content="{{ asset('images/logo.webp') }}">
+    <meta property="og:image:secure_url" content="{{ asset('images/logo.webp') }}">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1280">
+    <meta property="og:image:alt" content="agence web éco-responsable">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alsi, l'agence web éco-responsable">
+    <meta name="twitter:description"
+          content="Notre agence web éco-responsable réalise des sites internet écologiques, moins énergivores &amp; moins polluants afin de limiter votre impact environnemental.">
+    <meta name="twitter:image" content="{{ asset('images/logo.webp') }}">
+    <meta name="twitter:label1" content="Écrit par">
+    <meta name="twitter:data1" content="Frandzdy Sanon">
+    <meta name="twitter:label2" content="Temps de lecture">
+    <meta name="twitter:data2" content="Moins d’une minute">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Alsi",
+            "description": "Alsi est une société de services spécialisée dans les solutions technologiques écoresponsables.",
+            "url": "{{ app.request.schemeAndHttpHost }}",
+            "logo": "{{ app.request.schemeAndHttpHost }}/images/logo.webp",
+            "telephone": "+33 6 95 56 58 22",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "24 allée du Cerf",
+                "addressLocality": "Courdimanche",
+                "postalCode": "95800",
+                "addressCountry": "FR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 49.0371,
+                "longitude": 2.0088
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33 6 95 56 58 22",
+                "contactType": "Service Client",
+                "availableLanguage": "French"
+            }
+        }
+    </script>
     {% block stylesheets %}
     {% endblock %}
 
@@ -18,12 +77,12 @@
             var ggRecaptchaPkey = '{{ googleRecaptchaPkey }}';
         </script>
         {% block importmap %}{{ importmap(['app', 'front_app']) }}{% endblock %}
-        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}" defer></script>
+        <script src="{{ preload(asset('bundles/fosjsrouting/js/router.min.js'), {'as': 'script'}) }}" defer></script>
         <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}" defer></script>
-        <script src="https://www.google.com/recaptcha/api.js?render={{ googleRecaptchaPkey }}"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer as="script"></script>
     {% endblock %}
 </head>
-<body class="container" id="page-top" {{ stimulus_controller('commun') }}>
+<body id="page-top" {{ stimulus_controller('commun') }}>
 {% block body %}{% endblock %}
 
 {% block javascripts_toastr %}

@@ -1,0 +1,155 @@
+{% extends 'front/layout.html.twig' %}
+
+{% block title %}Nos engagement{% endblock %}
+
+{% block content %}
+    <!-- Basic features section-->
+    <section class="masthead bg-light lazy-section-top" id="engagement">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between flex-sm-row-reverse">
+                <div class="col-sm-8 col-md-6 text-sm-center">
+                    <div class="py-3 py-lg-0">
+                        <span class="text-center mt-3 h3">Notre engagement c'est votre <span class="branding-color">engagement</span></span>
+                        <ul class="list-unstyled mt-5">
+                            <li class="mb-4">
+                                    <span class="h5 fw-bold">🌱 L'Importance du Développement <span
+                                                class="branding-color">Écoresponsable</span></span>
+                                <p>Adopter un développement <span class="branding-color">éco-responsable</span>,
+                                    c'est
+                                    prendre part à une démarche essentielle pour préserver notre planète. En
+                                    réduisant
+                                    la consommation énergétique des applications web et mobiles, nous pouvons
+                                    significativement diminuer l'empreinte carbone du secteur numérique. De plus,
+                                    ces
+                                    pratiques contribuent à la réduction des coûts opérationnels, améliorant ainsi
+                                    la
+                                    rentabilité à long terme de vos projets.</p>
+                            </li>
+                            <li class="mb-4">
+                                <span class="h5 fw-bold">💶 Les <span class="branding-color">Bénéfices</span> à Long Terme pour les Entreprises</span>
+                                <p>Les entreprises qui intègrent des pratiques éco-responsables dans leur
+                                    développement
+                                    technologique peuvent non seulement améliorer leur <span class="branding-color">image de marque</span>,
+                                    mais aussi se préparer aux futures <b>réglementations environnementales</b>. De
+                                    plus, une infrastructure numérique éco-responsable est souvent <span
+                                            class="branding-color">plus efficace</span>, ce qui peut se traduire par
+                                    des
+                                    économies substantielles sur les coûts d'exploitation et un retour sur
+                                    investissement plus rapide.</p>
+                            </li>
+                            <li class="mb-4">
+                                    <span class="h5 fw-bold">🌐 Réduire l'Empreinte Numérique : <span
+                                                class="branding-color">Une Responsabilité Collective</span></span>
+                                <p>Le secteur numérique est responsable d'une part croissante des <span
+                                            class="branding-color">émissions mondiales de CO2</span>. En adoptant
+                                    des
+                                    stratégies de développement écoresponsables, nous pouvons tous contribuer à <b>réduire
+                                        cette empreinte</b>. C'est une responsabilité collective, où chaque geste
+                                    compte, et où les entreprises ont un rôle clé à jouer en adoptant des pratiques
+                                    durables qui inspirent d'autres à faire de même.</p>
+                            </li>
+                            <li class="mb-4">
+                                <span class="h5 fw-bold">🤝 Partenariat avec <span
+                                            class="branding-color">Reforest'Action</span></span>
+                                <p>Notre partenariat avec l'association <span
+                                            class="branding-color">Reforest'Action</span> nous permet aussi de
+                                    contribuer à la reforestation. Pour chaque projet réalisé, nous nous engageons
+                                    à replanter des arbres à votre nom. Des certificats et des suivents sont mis en
+                                    place lors du lancement des projets. Nous intégrons ce processus dans la gestion
+                                    de
+                                    nos projets.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 text-sm-center">
+                    <h2 class="display-4 lh-1 mb-4">Chez <span class="branding-color">Alsi</span> nous vous
+                        accompagnons
+                    </h2>
+                    <p class="lead fw-normal mb-5 mb-lg-0">Pour vous <span class="branding-color">aider à adopter des pratiques</span>
+                        éco-responsables et respecter les futures réglementations environnementales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ include('front/partials/_planning_reservation.html.twig') }}
+    <!-- Testimonials Section with Carousel -->
+    <section id="testimonials" class="bg-light py-5 lazy-section-right">
+        <div class="container px-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 lh-1 mb-4">Ce que disent nos <span class="branding-color">clients</span></h2>
+                <p class="lead fw-normal  mb-5">Découvrez comment <span class="branding-color">Alsi</span> a aidé
+                    nos clients à transformer leur avenir digital <span class="branding-color">éco-responsable</span>.
+                </p>
+            </div>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-item mx-auto text-center">
+                            <span class="h5">Emmanuel - WebFMS SARL</span>
+                            <p class="font-weight-light mb-0">"Les équipes d'<span
+                                        class="branding-color">Alsi</span>
+                                ont fait un excellent travail sur un projet de migration complexe."</p>
+                            <p class="font-weight-light mb-0 mt-1">01/02/2024</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-item mx-auto text-center">
+                            <span class="h5">Moataz - Node</span>
+                            <p class="font-weight-light mb-0">"La société <span class="branding-color">Alsi</span>
+                                est
+                                top, ça avance avec eux, ils sont souples, pro, et compétent. À recommander."</p>
+                            <p class="font-weight-light mb-0 mt-1">15/03/2023</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-item mx-auto text-center">
+                            <span class="h5">Olivier - orbug Digital</span>
+                            <p class="font-weight-light mb-0">"Merci <span class="branding-color">Alsi</span> pour
+                                l'accompagnement millimètré. Vous êtes excellent, professionnel avec des valeurs et
+                                une
+                                pédagogie hors norme. Hâte de retravailler avec vous."</p>
+                            <p class="font-weight-light mb-0 mt-1">31/01/2023</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-item mx-auto text-center">
+                            <span class="h5">David - oclev</span>
+                            <p class="font-weight-light mb-0">"<span class="branding-color">Alsi</span> a très vite
+                                compris ce que je voulais mettre en place et a su répondre à ma problématique avec
+                                brio
+                                ! Je referai appel à ces services pour une prochaine évolution de notre site
+                                internet."
+                            </p>
+                            <p class="font-weight-light mb-0 mt-1">14/12/2022</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-item mx-auto text-center">
+                            <span class="h5">Olivier - Book d'Oreille SAS</span>
+                            <p class="font-weight-light mb-0">"J'ai sollicité la société <span
+                                        class="branding-color">Alsi</span>
+                                pour une transmission sur un projet complexe déja en production, afin qu'elle puisse
+                                mettre en place une maintenance évolutive.
+                                Ce n'était pas facile pour moi qui ne suis pas développeur, mais ils ont pu me
+                                rassurer
+                                et avancer étape par étape avec beaucoup de pédagogie."</p>
+                            <p class="font-weight-light mb-0 mt-1">21/11/2022</p>
+                        </div>
+                    </div>
+                </div>
+                <a title="Précédent" class="carousel-control-prev" href="#testimonialCarousel" role="button"
+                   data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </a>
+                <a title="Suivant" class="carousel-control-next" href="#testimonialCarousel" role="button"
+                   data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

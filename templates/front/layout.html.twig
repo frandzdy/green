@@ -2,7 +2,7 @@
 
 {% block body %}
     {{ include('front/partials/_nav.html.twig') }}
-    <main class="my-5" {{ stimulus_target('commun', 'container') }}>
+    <main {{ stimulus_target('commun', 'container') }}>
         {% block content %}{% endblock %}
     </main>
     {{ include('front/partials/_footer.html.twig') }}

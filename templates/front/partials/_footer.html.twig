@@ -1,10 +1,80 @@
-
 <!-- Footer-->
-<footer class="bg-gradient-primary-to-secondary text-center text-white py-5">
+<footer class="bg-gradient-primary-to-secondary text-center text-white py-5 lazy-section-bottom">
     <div class="container px-5">
-        <div class="text-white small">
-            <div class="mb-2">&copy; Your Website 2023. All Rights Reserved.</div>
-            <a href="#!" class="text-white">FAQ</a>
+        <div class="row mb-4">
+            <div class="col-4 text-white small">
+                <div class="mb-2">
+                    <div>
+                        <p>Alsi réalise des sites internet éco-responsables, épurés et sans fonctionnalités inutiles
+                            afin de se focaliser sur l’essentiel : une expérience utilisateur optimale et un geste
+                            bienveillant grâce à l’éco-conception web.</p>
+                    </div>
+                    <div>
+                        <a href="https://bff.ecoindex.fr/redirect/?url=https://www.ecoindex.fr/resultat/?id=4a232858-58fb-4b61-b908-9070b0e31c7a"
+                           target="_blank">
+                            <img src="https://bff.ecoindex.fr/badge/?theme=light&url=https://www.ecoindex.fr/resultat/?id=4a232858-58fb-4b61-b908-9070b0e31c7a"
+                                 alt="Ecoindex Badge"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-2 col-3 text-white small">
+                <div class="mb-2">Naviguez</div>
+                <a
+                   href="{{ path('front_commitment') }}"
+                   title="Engagement">
+                    <span class="d-flex align-items-center">
+                        <span class="small">Engagement</span>
+                    </span>
+                </a>
+                <a
+                   href="{{ path('front_process') }}"
+                   title="Notre méthodologie">
+                    <span class="d-flex align-items-center">
+                        <span class="small">Notre méthodologie</span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-3 text-white small">
+                <div class="mb-2">Communiquez</div>
+                <a {{ stimulus_action('commun', 'modalOpen', 'click') }}
+                        data-modal-title="Nous Contacter"
+                        class="open-front-modal"
+                        href="{{ path('front_contact') }}"
+                        title="contact"
+                >
+                    <span class="d-flex align-items-center">
+                        <span class="small">contact</span>
+                    </span>
+                </a>
+                <a href="mailto:contact@alsi.fr" title="contact@alsi.fr">
+                    <span class="d-flex align-items-center">
+                        <span class="small">contact@alsi.fr</span>
+                    </span>
+                </a>
+                <a href="tel:+330695565822" title="06.95.56.58.22">
+                     <span class="d-flex align-items-center">
+                        <span class="small">06.95.56.58.22</span>
+                    </span>
+                </a>
+                <a class="open-front-modal" {{ stimulus_action('commun', 'modalOpen', 'click') }}
+                   data-modal-title="Planifier un rendez-vous"
+                   title="Planifiez un rendez-vous"
+                   href="{{ path('front_calendly') }}">
+                    <span class="d-flex align-items-center">
+                        <span class="small">rendez-vous</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="row small">
+            <div class="col-3">
+                <a href="{{ path('front_legal_mentions') }}">mentions légales</a>
+                <a href="{{ path('front_privacy') }}">confidentialité</a>
+            </div>
+            <div class="offset-4 col-5">
+                <p class="mb-2">&copy; Alsi 2021. All Rights Reserved. | Créer par Frandzdy Sanon</p>
+            </div>
         </div>
     </div>
 </footer>
