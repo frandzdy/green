@@ -13,7 +13,7 @@
                     </p>
                     <ul>
                         <li><strong>Entreprise :</strong> {{ contact.companyName }}</li>
-                        <li><strong>Suject :</strong> {{ contact.subject.label }}</li>
+                        <li><strong>Sujet :</strong> {{ contact.subject.label }}</li>
                         <li><strong>Nom :</strong> {{ contact.lastname }}</li>
                         <li><strong>Prénom :</strong> {{ contact.firstname }}</li>
                         <li><strong>E-mail :</strong> {{ contact.email }}</li>
@@ -47,6 +47,7 @@
     Vous avez reçu un nouveau message depuis le site {{ app.request.schemeAndHttpHost }} :\n
     \n
     •    Entreprise : {{ contact.companyName }}\n
+    •    Sujet : {{ contact.subject.label }}\n
     •    Nom : {{ contact.lastname }}\n
     •    Prénom : {{ contact.firstname }}\n
     •    E-mail : {{ contact.email }}\n
