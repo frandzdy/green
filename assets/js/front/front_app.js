@@ -9,8 +9,6 @@ import '../../styles/front/front-template.css';
 
 import {ScrollSpy} from 'bootstrap';
 
-console.log('This log comes from assets/front/front_app.js - welcome to AssetMapper! 🎉');
-
 /*!
 * Start Bootstrap - New Age v6.0.7 (https://startbootstrap.com/theme/new-age)
 * Copyright 2013-2023 Start Bootstrap
