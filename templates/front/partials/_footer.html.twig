@@ -2,7 +2,7 @@
 <footer class="bg-gradient-primary-to-secondary text-center text-white py-5 lazy-section-bottom">
     <div class="container px-5">
         <div class="row mb-4">
-            <div class="col-4 text-white small">
+            <div class="col-lg-4 col-sm-4 text-white small">
                 <div class="mb-2">
                     <div>
                         <p>Alsi réalise des sites internet éco-responsables, épurés et sans fonctionnalités inutiles
@@ -11,31 +11,28 @@
                     </div>
                     <div>
                         <a href="https://bff.ecoindex.fr/redirect/?url=https://www.ecoindex.fr/resultat/?id=4a232858-58fb-4b61-b908-9070b0e31c7a"
-                           target="_blank">
+                           target="_blank" title="Ecoindex Badge">
                             <img src="https://bff.ecoindex.fr/badge/?theme=light&url=https://www.ecoindex.fr/resultat/?id=4a232858-58fb-4b61-b908-9070b0e31c7a"
                                  alt="Ecoindex Badge"/>
                         </a>
+                        <div id="wcb" class="carbonbadge"></div>
                     </div>
                 </div>
             </div>
-            <div class="offset-2 col-3 text-white small">
+            <div class="offset-lg-2 col-lg-4 offset-sm-1 col-sm-4 text-start text-white small">
                 <div class="mb-2">Naviguez</div>
-                <a
-                   href="{{ path('front_commitment') }}"
-                   title="Engagement">
+                <a href="{{ path('front_commitment') }}" title="Nos engagements">
                     <span class="d-flex align-items-center">
-                        <span class="small">Engagement</span>
+                        <span class="small">Nos engagements</span>
                     </span>
                 </a>
-                <a
-                   href="{{ path('front_process') }}"
-                   title="Notre méthodologie">
+                <a href="{{ path('front_process') }}" title="Notre méthodologie">
                     <span class="d-flex align-items-center">
                         <span class="small">Notre méthodologie</span>
                     </span>
                 </a>
             </div>
-            <div class="col-3 text-white small">
+            <div class="col-lg-2 col-sm-2 text-start text-white small">
                 <div class="mb-2">Communiquez</div>
                 <a {{ stimulus_action('commun', 'modalOpen', 'click') }}
                         data-modal-title="Nous Contacter"
@@ -47,12 +44,12 @@
                         <span class="small">contact</span>
                     </span>
                 </a>
-                <a href="mailto:contact@alsi.fr" title="contact@alsi.fr">
+                <a href="mailto:eco@alsi.tech" title="eco@alsi.tech">
                     <span class="d-flex align-items-center">
-                        <span class="small">contact@alsi.fr</span>
+                        <span class="small">eco@alsi.tech</span>
                     </span>
                 </a>
-                <a href="tel:+330695565822" title="06.95.56.58.22">
+                <a href="tel:+33695565822" title="06.95.56.58.22">
                      <span class="d-flex align-items-center">
                         <span class="small">06.95.56.58.22</span>
                     </span>
@@ -68,11 +65,11 @@
             </div>
         </div>
         <div class="row small">
-            <div class="col-3">
-                <a href="{{ path('front_legal_mentions') }}">mentions légales</a>
-                <a href="{{ path('front_privacy') }}">confidentialité</a>
+            <div class="col-5">
+                <a href="{{ path('front_legal_mentions') }}" title="Mentions légales">mentions légales</a>
+                <a href="{{ path('front_privacy') }}" title="Confidentialité">confidentialité</a>
             </div>
-            <div class="offset-4 col-5">
+            <div class="offset-2 col-5">
                 <p class="mb-2">&copy; Alsi 2021. All Rights Reserved. | Créer par Frandzdy Sanon</p>
             </div>
         </div>

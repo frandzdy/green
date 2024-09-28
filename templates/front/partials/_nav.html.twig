@@ -1,7 +1,8 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
     <div class="container px-5">
-        <a class="navbar-brand fw-bold" href="{{ path('front_home') }}#page-top" title="Accueil"><span class="branding-color h2">Alsi</span></a>
+        <a class="navbar-brand fw-bold" href="{{ path('front_home') }}#page-top" title="Accueil"><span
+                    class="branding-color h2">Alsi</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi-list"></i>
@@ -9,12 +10,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{ path('front_home') }}#services"
-                                        title="Notre Solution">Notre Solution</a></li>
+                                        title="Notre Solution">Notre service</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3" href="{{ path('front_home') }}#offres"
+                                        title="Notre Solution">Notre service</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{ path('front_commitment') }}"
-                                        title="Engagement">Engagement</a></li>
-{#                <li class="nav-item"><a class="nav-link me-lg-3" href="{{ path('front_blog') }}" title="Blog">Blog</a>#}
-{#                </li>#}
-                <li class="nav-item"><a class="nav-link me-lg-3" href="{{ path('front_process') }}" title="Notre méthodologie">Méthodologie</a>
+                                        title="Engagement">Nos engagements</a></li>
+                {#                <li class="nav-item"><a class="nav-link me-lg-3" href="{{ path('front_blog') }}" title="Blog">Blog</a> #}
+                {#                </li> #}
+                <li class="nav-item"><a class="nav-link me-lg-3" href="{{ path('front_process') }}"
+                                        title="Notre méthodologie">Méthodologie</a>
                 </li>
             </ul>
             <a {{ stimulus_action('commun', 'modalOpen', 'click') }}

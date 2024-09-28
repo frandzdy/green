@@ -1,6 +1,16 @@
 {% extends 'front/layout.html.twig' %}
 
-{% block title %}Nos engagement{% endblock %}
+{% block title %}Nos engagements{% endblock %}
+
+{% block breadcrumbs %}
+    <section>
+        <div class="container">
+            <div style="padding-top: 5rem">
+                <a href="{{ path('front_home') }}">Acceuil</a> / Nos engagements
+            </div>
+        </div>
+    </section>
+{% endblock %}
 
 {% block content %}
     <!-- Basic features section-->
@@ -9,7 +19,7 @@
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between flex-sm-row-reverse">
                 <div class="col-sm-8 col-md-6 text-sm-center">
                     <div class="py-3 py-lg-0">
-                        <span class="text-center mt-3 h3">Notre engagement c'est votre <span class="branding-color">engagement</span></span>
+                        <span class="text-center mt-3 h3">Nos <span class="branding-color">engagements</span></span>
                         <ul class="list-unstyled mt-5">
                             <li class="mb-4">
                                     <span class="h5 fw-bold">🌱 L'Importance du Développement <span
@@ -80,7 +90,8 @@
             <div class="text-center mb-5">
                 <h2 class="display-4 lh-1 mb-4">Ce que disent nos <span class="branding-color">clients</span></h2>
                 <p class="lead fw-normal  mb-5">Découvrez comment <span class="branding-color">Alsi</span> a aidé
-                    nos clients à transformer leur avenir digital <span class="branding-color">éco-responsable</span>.
+                    nos clients à transformer leur avenir digital <span
+                            class="branding-color">éco-responsable</span>.
                 </p>
             </div>
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">

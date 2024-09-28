@@ -1,54 +1,14 @@
-import { Controller } from '@hotwired/stimulus';
-import { Modal } from 'bootstrap';
+import {Controller} from '@hotwired/stimulus';
+import {Modal} from 'bootstrap';
 
-/*
- * This is an example Stimulus controller!
- *
- * Any element with a data-controller="hello" attribute will cause
- * this controller to be executed. The name "hello" comes from the filename:
- * hello_controller.js -> "hello"
- *
- * Delete this file or adapt it for your use!
- */
+/* stimulusFetch: 'lazy' */
 export default class extends Controller {
     static targets = ['container', 'modal', 'contactForm'];
     modal = null;
+
     connect() {
-        $(this.containerTarget)
-            .on('click', 'a.open-front-modal', (event) => {
-                event.preventDefault()
-                const item = $(event.currentTarget)
-                const href = item.attr('href')
-                const title = item.data('modal-title')
-                const size = item.data('lg-size')
-                const modal = Modal.getOrCreateInstance(this.modalTarget);
-                modal.hide();
-                this.openModal(title, href, size)
-            })
-            .on('click', 'a.post-confirm', (event) => {
-                // Liens d'actions avec confirmation
-                event.preventDefault()
-                const item = $(event.currentTarget)
-                jconfirm({
-                    title: item.data('title'),
-                    content: item.data('confirm-message'),
-                    type: item.data('type') || 'red',
-                    typeAnimated: true,
-                    buttons: {
-                        confirm: {
-                            text: item.data('button-text'),
-                            btnClass: item.data('btn-class') || 'btn-red',
-                            action: () => {
-                                this.postUrl(item.attr('href'))
-                            }
-                        },
-                        close: {
-                            text: "Annuler"
-                        }
-                    }
-                })
-            });
     }
+
     openModal(title, href, size) {
         const modal = Modal.getOrCreateInstance(this.modalTarget);
         $.get(href).done((response) => {
@@ -67,6 +27,7 @@ export default class extends Controller {
             toastr.error("Une erreur est survenue.")
         });
     }
+
     modalOpen(event) {
         event.preventDefault()
         const item = $(event.currentTarget)
@@ -75,6 +36,7 @@ export default class extends Controller {
         const size = item.data('lg-size')
         this.openModal(title, href, size)
     }
+
     /**
      * Traitement des formulaires en modale
      * @param target
@@ -173,50 +135,5 @@ export default class extends Controller {
             $btn.html($btn.data('title')).removeAttr('disabled');
             toastr.error("Une erreur est survenue.");
         }
-    }
-
-    addZone(event) {
-        event.preventDefault();
-        const item = $(event.currentTarget)
-        const href = item.data('href')
-        const title = item.data('modal-title')
-        const size = item.data('lg-size')
-        const modal = Modal.getOrCreateInstance(this.modalTarget);
-        modal.hide();
-        this.openModal(title, href, size)
-    }
-
-    postUrl(url) {
-        $('<form></form>')
-            .attr('action', url)
-            .attr('id', 'form-confirm')
-            .attr('method', 'POST')
-            .appendTo('body');
-
-        $('#form-confirm').submit();
-    }
-
-    checkRecaptcha(event) {
-        alert('e')
-        event.preventDefault();
-        grecaptcha.ready(() => {
-            grecaptcha.execute(ggRecaptchaPkey, {action: 'submit'}).then((token) => {
-                let $btn = $('input[type="submit"]');
-                $btn
-                    .attr('disabled', 'disabled');
-                // Add your logic to submit to your backend server here.
-                $.post(
-                    Routing.generate('front_recaptcha_check', {'token': token})
-                ).done(async (data) => {
-                    if (data.response) {
-                        const $form = $(this.contactFormTarget);
-                        $form.submit();
-                    } else {
-                        $btn.html('Envoyer').removeAttr('disabled');
-                        toastr.error("Vous avez été identifié comme robot; si ce n'est pas le cas, veuillez réessayer.");
-                    }
-                });
-            });
-        });
     }
 }

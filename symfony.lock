@@ -50,18 +50,6 @@
             ".php-cs-fixer.dist.php"
         ]
     },
-    "friendsofsymfony/jsrouting-bundle": {
-        "version": "3.5",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "2.3",
-            "ref": "a9f2e49180f75cdc71ae279a929c4b2e0638de84"
-        },
-        "files": [
-            "config/routes/fos_js_routing.yaml"
-        ]
-    },
     "phpstan/phpstan": {
         "version": "1.11",
         "recipe": {
@@ -298,21 +286,6 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
-    },
-    "symfony/ux-autocomplete": {
-        "version": "2.18",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "2.6",
-            "ref": "07d9602b7231ba355f484305d6cea58310c01741"
-        },
-        "files": [
-            "config/routes/ux_autocomplete.yaml"
-        ]
-    },
-    "symfony/ux-turbo": {
-        "version": "v2.18.0"
     },
     "symfony/validator": {
         "version": "7.1",

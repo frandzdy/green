@@ -3,6 +3,7 @@
 {% block body %}
     {{ include('front/partials/_nav.html.twig') }}
     <main {{ stimulus_target('commun', 'container') }}>
+        {% block breadcrumbs %}{% endblock %}
         {% block content %}{% endblock %}
     </main>
     {{ include('front/partials/_footer.html.twig') }}

@@ -21,7 +21,7 @@
     <meta property="og:title" content="Alsi, l'agence web éco-responsable">
     <meta property="og:description"
           content="Notre agence web éco-responsable réalise des sites internet écologiques, moins énergivores &amp; moins polluants afin de limiter votre impact environnemental.">
-    <meta property="og:url" content="https://alsi.fr/">
+    <meta property="og:url" content="{{ app.request.schemeAndHttpHost }}">
     <meta property="og:site_name" content="Alsi">
     <meta property="og:updated_time" content="2024-08-19T20:34:05+02:00">
     <meta property="og:image" content="{{ asset('images/logo.webp') }}">
@@ -77,9 +77,8 @@
             var ggRecaptchaPkey = '{{ googleRecaptchaPkey }}';
         </script>
         {% block importmap %}{{ importmap(['app', 'front_app']) }}{% endblock %}
-        <script src="{{ preload(asset('bundles/fosjsrouting/js/router.min.js'), {'as': 'script'}) }}" defer></script>
-        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}" defer></script>
         <script src="https://www.google.com/recaptcha/api.js" async defer as="script"></script>
+        <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer as="script"></script>
     {% endblock %}
 </head>
 <body id="page-top" {{ stimulus_controller('commun') }}>

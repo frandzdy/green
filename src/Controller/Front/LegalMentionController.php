@@ -4,8 +4,10 @@ namespace App\Controller\Front;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
+#[Cache(maxage: 3600, public: true)]
 class LegalMentionController extends AbstractController
 {
     #[Route('/mentions-legales', name: 'legal_mentions', methods: ['GET'])]
