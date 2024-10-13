@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Model\ContactModel;
 use Psr\Log\LoggerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
@@ -24,6 +25,12 @@ readonly class MailerManager
 
     /**
      * Envoi un email.
+     *
+     * @param array<int, string>               $to
+     * @param array<string, ContactModel>|null $vars
+     * @param array<int, string>               $pathAttachmentFiles
+     * @param array<int, string>               $bccs
+     * @param array<int, string>               $ccs
      */
     public function sendMailNotification(
         array|string $to,

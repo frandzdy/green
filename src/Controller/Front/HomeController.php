@@ -17,7 +17,9 @@ class HomeController extends AbstractController
         $response = $this->render('front/home/index.html.twig');
 
         // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
-        $response->setEtag(md5($response->getContent()));
+        if ($response->getContent()) {
+            $response->setEtag(md5($response->getContent()));
+        }
 
         // Validation du cache et mise à jour de la réponse en fonction du cache existant
         if ($response->isNotModified($request)) {
@@ -38,8 +40,10 @@ class HomeController extends AbstractController
     {
         $response = $this->render('front/home/process.html.twig');
 
-        // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
-        $response->setEtag(md5($response->getContent()));
+        if ($response->getContent()) {
+            // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
+            $response->setEtag(md5($response->getContent()));
+        }
 
         // Validation du cache et mise à jour de la réponse en fonction du cache existant
         if ($response->isNotModified($request)) {
@@ -54,8 +58,10 @@ class HomeController extends AbstractController
     {
         $response = $this->render('front/home/commitment.html.twig');
 
-        // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
-        $response->setEtag(md5($response->getContent()));
+        if ($response->getContent()) {
+            // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
+            $response->setEtag(md5($response->getContent()));
+        }
 
         // Validation du cache et mise à jour de la réponse en fonction du cache existant
         if ($response->isNotModified($request)) {

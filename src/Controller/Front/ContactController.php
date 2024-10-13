@@ -27,7 +27,7 @@ class ContactController extends AbstractController
             ];
             $mailerManager->sendMailNotification(
                 $emailContact,
-                $contact->getEmail(),
+                $contact->getEmail() ?? '',
                 'emails/contact.html.twig',
                 $vars
             );

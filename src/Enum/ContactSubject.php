@@ -19,6 +19,8 @@ enum ContactSubject: int
 
     /**
      * Retourne la liste des sujets contacts disponibles.
+     *
+     * @return array<int, string>
      */
     public static function getAvailableContactSubjects(): array
     {
