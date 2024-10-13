@@ -41,7 +41,7 @@ return [
         'type' => 'css',
     ],
     '@hotwired/turbo' => [
-        'version' => '8.0.5',
+        'version' => '8.0.10',
     ],
     'jquery' => [
         'version' => '3.7.1',

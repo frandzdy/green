@@ -61,7 +61,7 @@
     --bs-body-font-size: 1rem;
     --bs-body-font-weight: 500;
     --bs-body-line-height: 1.5;
-    --bs-body-text-align: 'center';
+    --bs-body-text-align: 'justify';
     --bs-body-color: #212529;
     --bs-body-bg: #fff;
     --bs-border-width: 1px;
@@ -74,8 +74,8 @@
     --bs-border-radius-xl: 1rem;
     --bs-border-radius-2xl: 2rem;
     --bs-border-radius-pill: 50rem;
-    --bs-link-color: #2937f0;
-    --bs-link-hover-color: #212cc0;
+    --bs-link-color: #27AE60;
+    --bs-link-hover-color: #1a7941;
     --bs-code-color: #d63384;
     --bs-highlight-bg: #fff3cd;
 }

@@ -14,7 +14,7 @@ class ContactModel
      * Sujet du formulaire de, contactez-nous.
      */
     #[Assert\NotBlank(message: 'Information requise.')]
-    private ?ContactSubject $subject = null;
+    private ?string $subject = null;
 
     #[Assert\File(maxSize: '1M', mimeTypes: ['application/pdf', 'application/x-pdf'])]
     public ?UploadedFile $uploadFile = null;
@@ -22,7 +22,7 @@ class ContactModel
     /**
      * Retourne le sujet.
      */
-    public function getSubject(): ?ContactSubject
+    public function getSubject(): ?string
     {
         return $this->subject;
     }
@@ -30,7 +30,7 @@ class ContactModel
     /**
      * set le sujet.
      */
-    public function setSubject(?ContactSubject $subject): self
+    public function setSubject(?string $subject = null): self
     {
         $this->subject = $subject;
 

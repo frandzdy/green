@@ -8,13 +8,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Cache(maxage: 3600, public: true)]
+#[Cache(smaxage: 3600, public: true)]
 class HomeController extends AbstractController
 {
     #[Route(path: '/', name: 'home')]
     public function index(Request $request): Response
     {
-        return $this->render('front/home/index.html.twig');
+        $response = $this->render('front/home/index.html.twig');
+
+        // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
+        $response->setEtag(md5($response->getContent()));
+
+        // Validation du cache et mise à jour de la réponse en fonction du cache existant
+        if ($response->isNotModified($request)) {
+            return $response;
+        }
+
+        return $response;
     }
 
     #[Route(path: '/reservation', name: 'calendly')]
@@ -24,14 +34,34 @@ class HomeController extends AbstractController
     }
 
     #[Route(path: '/procedure', name: 'process')]
-    public function process(): Response
+    public function process(Request$request): Response
     {
-        return $this->render('front/home/process.html.twig');
+        $response = $this->render('front/home/process.html.twig');
+
+        // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
+        $response->setEtag(md5($response->getContent()));
+
+        // Validation du cache et mise à jour de la réponse en fonction du cache existant
+        if ($response->isNotModified($request)) {
+            return $response;
+        }
+
+        return $response;
     }
 
     #[Route(path: '/engagement', name: 'commitment')]
-    public function commitment(): Response
+    public function commitment(Request$request): Response
     {
-        return $this->render('front/home/commitment.html.twig');
+        $response = $this->render('front/home/commitment.html.twig');
+
+        // Calcul d'un etag ou d'une date de dernière modification en fonction du contenu
+        $response->setEtag(md5($response->getContent()));
+
+        // Validation du cache et mise à jour de la réponse en fonction du cache existant
+        if ($response->isNotModified($request)) {
+            return $response;
+        }
+
+        return $response;
     }
 }

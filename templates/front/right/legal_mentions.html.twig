@@ -5,7 +5,7 @@
 {% block breadcrumbs %}
     <section>
         <div class="container">
-            <div style="padding-top: 5rem">
+            <div style="padding-top: 2rem;padding-bottom: 0rem;">
                 <a href="{{ path('front_home') }}">Accueil</a> / Mentions Légales
             </div>
         </div>
@@ -19,7 +19,8 @@
             <div>
                 <h2 class="fw-bold">Éditeur du site</h2>
                 <p><strong>Désignation :</strong> Alsi par Frandzdy Sanon</p>
-                <p><a href="{{ app.request.schemeAndHttpHost }}" target="_blank" rel="noopener noreferrer">{{ app.request.schemeAndHttpHost }}</a>
+                <p><a href="{{ app.request.schemeAndHttpHost }}" target="_blank"
+                      rel="noopener noreferrer">{{ app.request.schemeAndHttpHost }}</a>
                 </p>
             </div>
             <div class="pt-3">
@@ -39,13 +40,13 @@
                 <h2 class="fw-bold">Directeur de la publication</h2>
                 <p><strong>Frandzdy Sanon</strong></p>
                 <p>Téléphone : <a href="tel:+33768023423">06.95.56.58.22</a></p>
-                <p>Email : <a href="mailto:eco@alsi.tech">eco@alsi.tech</a></p>
+                <p>Email : <a href="mailto:eco@alsi-webtech.fr">eco@alsi-webtech.fr</a></p>
             </div>
 
             <div class="pt-3">
                 <h2 class="fw-bold">Conception et réalisation</h2>
                 <p><strong>Frandzdy Sanon</strong></p>
-                <p>Email : <a href="mailto:eco@alsi.tech">eco@alsi.tech</a></p>
+                <p>Email : <a href="mailto:eco@alsi-webtech.fr">eco@alsi-webtech.fr</a></p>
                 <p>Téléphone : <a href="tel:+33695565822">06.95.56.58.22</a></p>
                 <p>24 allée du cerf<br>95800 COURDIMANCHE<br>France</p>
                 <p>Site web : <a href="{{ app.request.schemeAndHttpHost }}" target="_blank"
@@ -55,9 +56,10 @@
 
             <div class="pt-3">
                 <h2 class="fw-bold">Hébergement</h2>
-                <p><strong>Ex2 Hosting</strong><br>Serveurs localisés en Suisse<br>Rue Eugène-Marziano 25, Genève,
+                <p><strong>Infomaniak</strong><br>Serveurs localisés en Suisse<br>Rue Eugène-Marziano 25, Genève,
                     Suisse, 1227 Genève, Suisse</p>
-                <p><a href="https://www.infomaniak.com/fr" target="_blank" rel="noopener noreferrer">https://www.infomaniak.com/fr</a></p>
+                <p><a href="https://www.infomaniak.com/fr" target="_blank" rel="noopener noreferrer">https://www.infomaniak.com/fr</a>
+                </p>
             </div>
 
             <div class="pt-3">
@@ -74,35 +76,29 @@
                     site ne peut être tenu responsable des dommages directs et indirects consécutifs à l’accès au
                     site.</p>
             </div>
-
-            <div class="pt-3">
-                <h2 class="fw-bold">Reproduction</h2>
-                <p>Toute reproduction ou représentation, en tout ou partie, à d’autres fins sur un quelconque support,
-                    est interdite sans l’autorisation expresse et préalable du propriétaire du site. Le non-respect de
-                    cette interdiction constitue une contrefaçon pouvant engager la responsabilité civile et pénale du
-                    contrefacteur.</p>
-            </div>
-
             <div class="pt-3">
                 <h2 class="fw-bold">Propriété intellectuelle</h2>
-                <p>Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, logo,
-                    icônes, sons, logiciels, etc.) restent la propriété exclusive de leurs auteurs en ce qui concerne
-                    les droits de propriété intellectuelle ou les droits d’usage.</p>
-                <p>Articles L111-1 et suivants du Code de la Propriété Intellectuelle du 1er juillet 1992</p>
+                <p>
+                    Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, logo,
+                    icônes, sons, logiciels, etc.) restent la propriété exclusive de leurs auteurs, en ce qui concerne
+                    les droits de propriété intellectuelle ou les droits d’usage.
+                </p>
+                <p>
+                    Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des
+                    éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation
+                    écrite préalable de l’auteur.
+                </p>
                 <p>Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient est
                     considérée comme constitutive d’une contrefaçon et passible de poursuites.</p>
-                <p>Article 41 de la loi du 11 mars 1957</p>
-                <p>Article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995</p>
             </div>
 
             <div class="pt-3">
-                <h2 class="fw-bold">Liens</h2>
-                <h3>Liens sortants</h3>
+                <h2 class="fw-bold">Liens sortants</h2>
                 <p>Le propriétaire du site décline toute responsabilité et n’est pas engagé par le référencement via des
                     liens hypertextes, de ressources tierces présentes sur le réseau Internet, tant en ce qui concerne
                     leur contenu que leur pertinence.</p>
 
-                <h3>Liens entrants</h3>
+                <h2 class="fw-bold">Liens entrants</h2>
                 <p>Le propriétaire du site autorise les liens hypertextes vers l’une des pages de ce site, à condition
                     que ceux-ci ouvrent une nouvelle fenêtre et soient présentés de manière non équivoque afin d’éviter
                     tout risque de confusion entre le site citant et le propriétaire du site ainsi que toute
@@ -115,14 +111,12 @@
                 <h2 class="fw-bold">Confidentialité</h2>
                 <p>Tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux données
                     personnelles le concernant, en effectuant sa demande écrite et signée, accompagnée d’une preuve
-                    d’identité. Le site ne recueille pas d’informations personnelles, et n’est pas assujetti à
-                    déclaration à la CNIL.</p>
-                <p>Article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique</p>
-                <p>Loi n° 78-87 du 6 janvier 1978, modifiée par la loi n° 2004-801 du 6 août 2004, relative à
-                    l’informatique, aux fichiers et aux libertés</p>
-                <p>Loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection
-                    juridique des bases de données</p>
-                <p>Loi n° 2004-801 du 6 août 2004</p>
+                    d’identité.
+                </p>
+                <p>
+                    Le site ne recueille pas d’informations personnelles, et n’est pas assujetti à
+                    déclaration à la CNIL.
+                </p>
             </div>
         </div>
     </section>

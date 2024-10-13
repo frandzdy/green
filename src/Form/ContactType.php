@@ -5,8 +5,8 @@ namespace App\Form;
 use App\Enum\ContactSubject;
 use App\Model\ContactModel;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -94,12 +94,11 @@ class ContactType extends AbstractType
             )
             ->add(
                 'subject',
-                EnumType::class,
+                ChoiceType::class,
                 [
                     'label' => false,
-                    'class' => ContactSubject::class,
-                    'attr' => ['class' => 'custom-select'],
                     'choices' => array_flip(ContactSubject::getAvailableContactSubjects()),
+                    'attr' => ['class' => 'custom-select'],
                     'placeholder' => '-- Sélectionnez un sujet --',
                     'row_attr' => [
                         'class' => 'form-floating mb-3',
