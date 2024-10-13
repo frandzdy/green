@@ -34,7 +34,7 @@ class HomeController extends AbstractController
     }
 
     #[Route(path: '/procedure', name: 'process')]
-    public function process(Request$request): Response
+    public function process(Request $request): Response
     {
         $response = $this->render('front/home/process.html.twig');
 
@@ -50,7 +50,7 @@ class HomeController extends AbstractController
     }
 
     #[Route(path: '/engagement', name: 'commitment')]
-    public function commitment(Request$request): Response
+    public function commitment(Request $request): Response
     {
         $response = $this->render('front/home/commitment.html.twig');
 
