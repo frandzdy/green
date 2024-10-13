@@ -1,4 +1,6 @@
 {
+    "name": "alsi/webtech",
+    "description": "Alsi Webtech",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
