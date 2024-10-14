@@ -1,8 +1,12 @@
 /* Palette de couleurs inspirée par la nature */
 .branding-color {
     color: #056618;
+    font-weight: bolder;
 }
-
+.branding-color-blue {
+    color: #2937f0;
+    font-weight: bolder;
+}
 footer a {
     color: white;
 }
