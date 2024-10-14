@@ -2,8 +2,8 @@
 
 {% block body_html %}
     {% embed 'emails/_layout.html.twig' %}
-        {% block title %}Nouveau contact : {{ contact.companyName }} | {{ contact.subject.label }}{% endblock %}
-        {% block accroche %}Nouveau contact : {{ contact.companyName }} | {{ contact.subject.label }}{% endblock %}
+        {% block title %}Nouveau contact : {{ contact.companyName }} | {{ contact.subject }}{% endblock %}
+        {% block accroche %}Nouveau contact : {{ contact.companyName }} | {{ contact.subject }}{% endblock %}
         {% block body %}
             <tr>
                 <td style="padding-top:20px;">
@@ -13,7 +13,7 @@
                     </p>
                     <ul>
                         <li><strong>Entreprise :</strong> {{ contact.companyName }}</li>
-                        <li><strong>Sujet :</strong> {{ contact.subject.label }}</li>
+                        <li><strong>Sujet :</strong> {{ contact.subject }}</li>
                         <li><strong>Nom :</strong> {{ contact.lastname }}</li>
                         <li><strong>Prénom :</strong> {{ contact.firstname }}</li>
                         <li><strong>E-mail :</strong> {{ contact.email }}</li>
@@ -47,7 +47,7 @@
     Vous avez reçu un nouveau message depuis le site {{ app.request.schemeAndHttpHost }} :\n
     \n
     •    Entreprise : {{ contact.companyName }}\n
-    •    Sujet : {{ contact.subject.label }}\n
+    •    Sujet : {{ contact.subject }}\n
     •    Nom : {{ contact.lastname }}\n
     •    Prénom : {{ contact.firstname }}\n
     •    E-mail : {{ contact.email }}\n

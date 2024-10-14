@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Enum\ContactSubject;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -23,13 +24,13 @@ class ContactModel
      */
     public function getSubject(): ?string
     {
-        return $this->subject;
+        return ContactSubject::getLabel($this->subject);
     }
 
     /**
      * set le sujet.
      */
-    public function setSubject(?string $subject = null): self
+    public function setSubject(?string $subject): self
     {
         $this->subject = $subject;
 

@@ -39,7 +39,7 @@ trait NotificationModelTrait
      * Téléphone du formulaire de contact.
      */
     #[Assert\Length(max: 20, maxMessage: '20 caractères maximum.')]
-    private ?string $phone;
+    private ?string $phone = null;
 
     /**
      * Message du formulaire de contact.
@@ -131,7 +131,7 @@ trait NotificationModelTrait
     /**
      * Set le téléphone du contact.
      */
-    public function setPhone(?string $phone): self
+    public function setPhone(?string $phone = null): self
     {
         $this->phone = $phone;
 

@@ -4,6 +4,7 @@ namespace App\Controller\Front;
 
 use App\Service\RecaptchaManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -15,6 +16,7 @@ class CheckRecaptchaController extends AbstractController
     #[Route('/check-recaptcha/{token}', name: 'recaptcha_check', options: ['expose' => true], methods: ['POST'])]
     public function checkRecaptcha(
         string $token,
+        #[Autowire('%gg_recaptcha_skey%')]
         string $googleRecaptchaSkey,
         RecaptchaManager $recaptchaManager,
     ): JsonResponse {
