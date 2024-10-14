@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Cache(maxage: 3600, public: true)]
 class BlogController extends AbstractController
 {
-    #[Route('/blogs', name: 'blog', methods: ['GET'])]
     public function blogs(
     ): Response {
         return $this->render('front/blog/index.html.twig');

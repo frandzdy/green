@@ -6,39 +6,27 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.">
-    <meta name="keywords"
-          content="Alsi l'agence web éco-responsable, développement éco-responsable de site moins énergivore, numérique durable, plantation d'arbres, technologie verte, développement web, minimum d'impact environnemental, agence web éco-responsable">
+          content="{% block description %}Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.{% endblock %}">
     <meta name="robots" content="follow, index, all, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" sizes="75x75"/>
     <title>Alsi | {% block title %}{% endblock %}</title>
     <link rel="canonical" href="{{ app.request.uri }}">
-
-    <meta name="turbo-cache-control" content="no-cache">
-
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Alsi, l'agence web éco-responsable">
+    <!--Seo Réseaux-->
+    <meta property="og:title" content="Alsi | {% block title_og %}{% endblock %}">
+    <meta property="og:type" content=website>
     <meta property="og:description"
-          content="Notre agence web éco-responsable réalise des sites internet écologiques, moins énergivores &amp; moins polluants afin de limiter votre impact environnemental.">
-    <meta property="og:url" content="{{ app.request.schemeAndHttpHost }}">
-    <meta property="og:site_name" content="Alsi">
-    <meta property="og:updated_time" content="2024-08-19T20:34:05+02:00">
+          content=" {% block description_og %}Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.{% endblock %}">
     <meta property="og:image" content="{{ asset('images/logo.webp') }}">
-    <meta property="og:image:secure_url" content="{{ asset('images/logo.webp') }}">
-    <meta property="og:image:width" content="1920">
-    <meta property="og:image:height" content="1280">
-    <meta property="og:image:alt" content="agence web éco-responsable">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Alsi, l'agence web éco-responsable">
-    <meta name="twitter:description"
-          content="Notre agence web éco-responsable réalise des sites internet écologiques, moins énergivores &amp; moins polluants afin de limiter votre impact environnemental.">
-    <meta name="twitter:image" content="{{ asset('images/logo.webp') }}">
-    <meta name="twitter:label1" content="Écrit par">
-    <meta name="twitter:data1" content="Frandzdy Sanon">
-    <meta name="twitter:label2" content="Temps de lecture">
-    <meta name="twitter:data2" content="Moins d’une minute">
+    <meta property="og:site_name" content="Alsi">
+    <meta property="og:url" content="{{ app.request.getSchemeAndHttpHost() }}">
+    <!--Seo Twitter-->
+    <meta property="twitter:title" content="Alsi | {% block title_tw %}{% endblock %}">
+    <meta property="twitter:type" content=website>
+    <meta property="twitter:description"
+          content="{% block description_tw %}Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.{% endblock %}">
+    <meta property="twitter:image" content="{{ asset('images/logo.webp') }}">
+    <meta name="twitter:card" content=summary>
+    <meta name="turbo-cache-control" content="no-cache">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",

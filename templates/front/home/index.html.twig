@@ -1,6 +1,8 @@
 {% extends 'front/layout.html.twig' %}
 
 {% block title %}Numérique Éco-Responsable{% endblock %}
+{% block title_og %}Numérique Éco-Responsable{% endblock %}
+{% block title_tw %}Numérique Éco-Responsable{% endblock %}
 
 {% block content %}
     <!-- Masthead header-->
@@ -10,13 +12,12 @@
                 <div class="col-lg-6">
                     <!-- Masthead text and app badges-->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="display-1 lh-1 mb-3">Transformez votre avenir <span
-                                    class="branding-color">digital</span></h1>
-                        <p class="lead fw-normal  mb-5"><span class="branding-color">Alsi</span> adopte des
-                            solutions
-                            digitales éco-responsables et performantes pour un impact durable.</p>
+                        <h1 class="display-1 lh-1 mb-3">Anticipez votre avenir <span
+                                    class="branding-color">numérique</span></h1>
+                        <p class="lead fw-normal  mb-5"><span class="branding-color">Alsi</span> propose des
+                            solutions de création de sites éco-responsables et performantes pour un impact durable.</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <a class="btn btn-secondary me-lg-3 mb-4 mb-lg-0 rounded-pill open-front-modal " {{ stimulus_action('commun', 'modalOpen', 'click') }}
+                            <a class="btn bg-gradient-primary-to-secondary me-lg-3 mb-4 mb-lg-0 rounded-pill open-front-modal " {{ stimulus_action('commun', 'modalOpen', 'click') }}
                                data-modal-title="Planifier un rendez-vous"
                                title="Planifiez un rendez-vous"
                                href="{{ path('front_calendly') }}">Planifiez un RDV <i class="bi bi-arrow-left"></i></a>
