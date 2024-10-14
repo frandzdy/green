@@ -25,14 +25,14 @@
                             <button class="btn btn-sm btn-outline-success rounded-pill">#audit</button>
                         </p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <a class="btn bg-gradient-primary-to-secondary me-lg-3 mb-4 mb-lg-0 rounded-pill open-front-modal " {{ stimulus_action('commun', 'modalOpen', 'click') }}
+                            <a class="btn bg-gradient-primary-to-secondary me-lg-3 mb-4 mb-lg-0 rounded-pill open-front-modal text-white" {{ stimulus_action('commun', 'modalOpen', 'click') }}
                                data-modal-title="Planifier un rendez-vous"
                                title="Planifiez un rendez-vous"
                                href="{{ path('front_calendly') }}">Planifiez un RDV <i class="bi bi-arrow-left"></i></a>
                             <a {{ stimulus_action('commun', 'modalOpen', 'click') }}
                                     title="Confier nous votre projet"
-                                    data-modal-title="Nous Contacter" class="btn btn-outline-success rounded-pill"
-                                    href="{{ path('front_contact') }}">Confier nous votre projet</a>
+                                    data-modal-title="Nous Contacter" class="btn btn-success rounded-pill"
+                                    href="{{ path('front_contact') }}">Vous avez un projet ?</a>
                         </div>
                     </div>
                 </div>
