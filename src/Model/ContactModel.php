@@ -16,7 +16,7 @@ class ContactModel
     #[Assert\NotBlank(message: 'Information requise.')]
     private ?string $subject = null;
 
-    #[Assert\File(maxSize: '2M', mimeTypes: ['application/pdf', 'application/x-pdf'])]
+    #[Assert\File(maxSize: '1M', mimeTypes: ['application/pdf', 'application/x-pdf'])]
     public ?UploadedFile $uploadFile = null;
 
     /**
