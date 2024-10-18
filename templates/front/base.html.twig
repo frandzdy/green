@@ -16,7 +16,7 @@
     <meta property="og:type" content=website>
     <meta property="og:description"
           content=" {% block description_og %}Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.{% endblock %}">
-    <meta property="og:image" content="{{ asset('images/logo.webp') }}">
+    <meta property="og:image" content="{{ app.request.schemeAndHttpHost }}{{ asset('images/logo.webp') }}">
     <meta property="og:site_name" content="Alsi">
     <meta property="og:url" content="{{ app.request.getSchemeAndHttpHost() }}">
     <!--Seo Twitter-->
@@ -24,7 +24,7 @@
     <meta property="twitter:type" content=website>
     <meta property="twitter:description"
           content="{% block description_tw %}Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.{% endblock %}">
-    <meta property="twitter:image" content="{{ asset('images/logo.webp') }}">
+    <meta property="twitter:image" content="{{ app.request.schemeAndHttpHost }}{{ asset('images/logo.webp') }}">
     <meta name="twitter:card" content=summary>
     <meta name="turbo-cache-control" content="no-cache">
     <script type="application/ld+json">
@@ -32,7 +32,7 @@
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Alsi",
-            "description": "Alsi est une société de services spécialisée dans les solutions technologiques écoresponsables.",
+            "description": "Alsi est une agence web éco-responsable. Une agence de services spécialisée dans les solutions technologiques écoresponsables.",
             "url": "{{ app.request.schemeAndHttpHost }}",
             "priceRange": "$$",
             "image": "{{ app.request.schemeAndHttpHost }}{{ asset('images/logo.webp') }}",
