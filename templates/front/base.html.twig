@@ -9,7 +9,7 @@
           content="{% block description %}Alsi l'agence web éco-responsable - Votre partenaire en développement numérique éco-responsable. Pour chaque projet réalisé, nous plantons un arbre avec notre fondation partenaire. Expert en conception de site web éco-responsable.{% endblock %}">
     <meta name="robots" content="follow, index, all, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" sizes="75x75"/>
-    <title>Alsi | {% block title %}{% endblock %}</title>
+    <title>Alsi l'agence web éco-responsable | {% block title %}{% endblock %}</title>
     <link rel="canonical" href="{{ app.request.uri }}">
     <!--Seo Réseaux-->
     <meta property="og:title" content="Alsi | {% block title_og %}{% endblock %}">
@@ -34,7 +34,7 @@
             "name": "Alsi",
             "description": "Alsi est une société de services spécialisée dans les solutions technologiques écoresponsables.",
             "url": "{{ app.request.schemeAndHttpHost }}",
-            "logo": "{{ asset('images/logo.webp') }}",
+            "logo": "{{ app.request.schemeAndHttpHost }}{{ asset('images/logo.webp') }}",
             "telephone": "+33 6 95 56 58 22",
             "address": {
                 "@type": "PostalAddress",
